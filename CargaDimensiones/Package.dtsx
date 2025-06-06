@@ -1,0 +1,1279 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/4/2025 11:09:46 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RALPHDESKTOP"
+  DTS:CreatorName="UNAN\raul.developer"
+  DTS:DTSID="{82E0ED0C-FB08-41BE-9A73-F2D189A7A14E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{6AB87120-A0E7-4577-BF03-DC0E76A58935}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[RALPHDESKTOP.Demo]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{579A951E-E451-45EC-A69D-82913AC1378B}"
+      DTS:ObjectName="RALPHDESKTOP.Demo">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=RALPHDESKTOP;Initial Catalog=Demo;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{579A951E-E451-45EC-A69D-82913AC1378B}RALPHDESKTOP.Demo;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[RALPHDESKTOP.Demo_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{38247E84-A6B5-4B58-99ED-34D27F54AA85}"
+      DTS:ObjectName="RALPHDESKTOP.Demo_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=RALPHDESKTOP;Initial Catalog=Demo_DW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{38247E84-A6B5-4B58-99ED-34D27F54AA85}RALPHDESKTOP.Demo_DW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7E6884DA-E19C-4823-9E35-08B6E264168B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LineageKey">
+      <DTS:VariableValue
+        DTS:DataType="3">-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0409D496-340E-4E2B-AF56-B518B81E1987}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LoadDate">
+      <DTS:VariableValue
+        DTS:DataType="7">12:00:00 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0B082D5A-6A37-4427-8667-E6D792A64F8D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LoadType">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EDE7A51F-F66A-4179-8EA8-1710ABB562D9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="PreviousLoadDate">
+      <DTS:VariableValue
+        DTS:DataType="7">12:00:00 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{93DDC46C-85C0-46CC-9232-9208CF78C9CE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TableName">
+      <DTS:VariableValue
+        DTS:DataType="8">Dim_Product</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF Populate Staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A91A7EBF-18A1-44B8-83B8-FBD07140DCE0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF Populate Staging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF Populate Staging\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Staging_Product]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Populate Staging\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[RALPHDESKTOP.Demo_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[RALPHDESKTOP.Demo_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[_Source Key]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="_Source Key"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[_Source Key]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[_Source Key]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product Name]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="Product Name"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Name]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Name]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product Code]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Product Code"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Code]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Code]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product Subcategory]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="Product Subcategory"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Subcategory]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Subcategory]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product Category]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="Product Category"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Category]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Category]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product Department]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="Product Department"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Department]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Department]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Unit Of Measure Code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Unit Of Measure Code"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Of Measure Code]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Unit Of Measure Code]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Unit Of Measure Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Unit Of Measure Name"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Of Measure Name]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Unit Of Measure Name]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Unit Price]"
+                      cachedDataType="numeric"
+                      cachedName="Unit Price"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Unit Price]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Discontinued]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Discontinued"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discontinued]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Discontinued]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Valid From]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Valid From"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Valid From]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Valid From]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Valid To]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Valid To"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Valid To]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Valid To]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product         Description]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="Product         Description"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Description]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product         Description]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product Modified Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Product Modified Date"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Modified Date]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Modified Date]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Subcategory Modified Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Subcategory Modified Date"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Subcategory Modified Date]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Subcategory Modified Date]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Category Modified Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Category Modified Date"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category Modified Date]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Category Modified Date]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Department Modified Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Department Modified Date"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department Modified Date]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Department Modified Date]" />
+                    <inputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UM Modified Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UM Modified Date"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UM Modified Date]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[UM Modified Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Key]"
+                      dataType="i4"
+                      name="Product Key" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[_Source Key]"
+                      dataType="wstr"
+                      length="50"
+                      name="_Source Key" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Name]"
+                      dataType="wstr"
+                      length="200"
+                      name="Product Name" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Code]"
+                      dataType="wstr"
+                      length="50"
+                      name="Product Code" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Description]"
+                      dataType="wstr"
+                      length="200"
+                      name="Product Description" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Subcategory]"
+                      dataType="wstr"
+                      length="200"
+                      name="Product Subcategory" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Category]"
+                      dataType="wstr"
+                      length="200"
+                      name="Product Category" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Department]"
+                      dataType="wstr"
+                      length="200"
+                      name="Product Department" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Of Measure Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Unit Of Measure Code" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Of Measure Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Unit Of Measure Name" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
+                      dataType="numeric"
+                      name="Unit Price"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discontinued]"
+                      dataType="wstr"
+                      length="10"
+                      name="Discontinued" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Valid From]"
+                      dataType="dbTimeStamp"
+                      name="Valid From" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Valid To]"
+                      dataType="dbTimeStamp"
+                      name="Valid To" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Modified Date]"
+                      dataType="dbTimeStamp"
+                      name="Product Modified Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Subcategory Modified Date]"
+                      dataType="dbTimeStamp"
+                      name="Subcategory Modified Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category Modified Date]"
+                      dataType="dbTimeStamp"
+                      name="Category Modified Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department Modified Date]"
+                      dataType="dbTimeStamp"
+                      name="Department Modified Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UM Modified Date]"
+                      dataType="dbTimeStamp"
+                      name="UM Modified Date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Populate Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Populate Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Populate Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Populate Staging\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Load_StagingProduct ?,?
+WITH RESULT SETS
+(
+    (      
+         [_Source Key] [nvarchar](50), 
+         [Product Name]         [nvarchar](200), 
+         [Product Code] [nvarchar](50), 
+         [Product         Description] [nvarchar](200),    
+         [Product Subcategory] [nvarchar]    (200),         
+         [Product Category] [nvarchar](200), 
+         [Product Department] [nvarchar](200), 
+         [Unit Of Measure Code] [nvarchar](10), 
+         [Unit Of Measure Name] [nvarchar](50), 
+         [Unit Price] [decimal](18,2), 
+         [Discontinued] [nvarchar](10),  
+         [Product Modified Date] [datetime], 
+         [Subcategory Modified Date] [datetime], 
+         [Category Modified Date] [datetime], 
+         [Department Modified Date] [datetime], 
+         [UM Modified Date] [datetime],  
+         [Valid From] [datetime], 
+        [Valid To] [datetime]
+    )
+)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"@LastLoadDate:Input",{EDE7A51F-F66A-4179-8EA8-1710ABB562D9};"@NewLoadDate:Input",{0409D496-340E-4E2B-AF56-B518B81E1987};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Populate Staging\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[RALPHDESKTOP.Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[RALPHDESKTOP.Demo]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[_Source Key]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[_Source Key]"
+                      length="50"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[_Source Key]"
+                      name="_Source Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Name]"
+                      length="200"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Name]"
+                      name="Product Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Code]"
+                      length="50"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Code]"
+                      name="Product Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product         Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product         Description]"
+                      length="200"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product         Description]"
+                      name="Product         Description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Subcategory]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Subcategory]"
+                      length="200"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Subcategory]"
+                      name="Product Subcategory"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Category]"
+                      length="200"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Category]"
+                      name="Product Category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Department]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Department]"
+                      length="200"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Department]"
+                      name="Product Department"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Unit Of Measure Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Unit Of Measure Code]"
+                      length="10"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Unit Of Measure Code]"
+                      name="Unit Of Measure Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Unit Of Measure Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Unit Of Measure Name]"
+                      length="50"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Unit Of Measure Name]"
+                      name="Unit Of Measure Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Unit Price]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Unit Price]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Unit Price]"
+                      name="Unit Price"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Discontinued]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Discontinued]"
+                      length="10"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Discontinued]"
+                      name="Discontinued"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Modified Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Modified Date]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product Modified Date]"
+                      name="Product Modified Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Subcategory Modified Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Subcategory Modified Date]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Subcategory Modified Date]"
+                      name="Subcategory Modified Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Category Modified Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Category Modified Date]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Category Modified Date]"
+                      name="Category Modified Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Department Modified Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Department Modified Date]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Department Modified Date]"
+                      name="Department Modified Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[UM Modified Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UM Modified Date]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[UM Modified Date]"
+                      name="UM Modified Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Valid From]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Valid From]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Valid From]"
+                      name="Valid From"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Valid To]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Valid To]"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Valid To]"
+                      name="Valid To"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[_Source Key]"
+                      dataType="wstr"
+                      length="50"
+                      name="_Source Key" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Name]"
+                      dataType="wstr"
+                      length="200"
+                      name="Product Name" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Code]"
+                      dataType="wstr"
+                      length="50"
+                      name="Product Code" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product         Description]"
+                      dataType="wstr"
+                      length="200"
+                      name="Product         Description" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Subcategory]"
+                      dataType="wstr"
+                      length="200"
+                      name="Product Subcategory" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Category]"
+                      dataType="wstr"
+                      length="200"
+                      name="Product Category" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Department]"
+                      dataType="wstr"
+                      length="200"
+                      name="Product Department" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Unit Of Measure Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Unit Of Measure Code" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Unit Of Measure Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Unit Of Measure Name" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Unit Price]"
+                      dataType="numeric"
+                      name="Unit Price"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Discontinued]"
+                      dataType="wstr"
+                      length="10"
+                      name="Discontinued" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product Modified Date]"
+                      dataType="dbTimeStamp"
+                      name="Product Modified Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Subcategory Modified Date]"
+                      dataType="dbTimeStamp"
+                      name="Subcategory Modified Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Category Modified Date]"
+                      dataType="dbTimeStamp"
+                      name="Category Modified Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Department Modified Date]"
+                      dataType="dbTimeStamp"
+                      name="Department Modified Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UM Modified Date]"
+                      dataType="dbTimeStamp"
+                      name="UM Modified Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Valid From]"
+                      dataType="dbTimeStamp"
+                      name="Valid From" />
+                    <externalMetadataColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Valid To]"
+                      dataType="dbTimeStamp"
+                      name="Valid To" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[_Source Key]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[_Source Key]"
+                      name="_Source Key" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Name]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Name]"
+                      name="Product Name" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Code]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Code]"
+                      name="Product Code" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product         Description]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product         Description]"
+                      name="Product         Description" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Subcategory]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Subcategory]"
+                      name="Product Subcategory" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Category]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Category]"
+                      name="Product Category" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Department]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Department]"
+                      name="Product Department" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Unit Of Measure Code]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Unit Of Measure Code]"
+                      name="Unit Of Measure Code" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Unit Of Measure Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Unit Of Measure Name]"
+                      name="Unit Of Measure Name" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Unit Price]"
+                      dataType="numeric"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Unit Price]"
+                      name="Unit Price"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Discontinued]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Discontinued]"
+                      name="Discontinued" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Modified Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product Modified Date]"
+                      name="Product Modified Date" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Subcategory Modified Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Subcategory Modified Date]"
+                      name="Subcategory Modified Date" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Category Modified Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Category Modified Date]"
+                      name="Category Modified Date" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Department Modified Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Department Modified Date]"
+                      name="Department Modified Date" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UM Modified Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UM Modified Date]"
+                      name="UM Modified Date" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Valid From]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Valid From]"
+                      name="Valid From" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Valid To]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Valid To]"
+                      name="Valid To" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF Populate Staging.Paths[OLE DB Source Output]"
+              endId="Package\DF Populate Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF Populate Staging\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Obtener la Fecha de Carga"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{3318A51F-E48B-47A0-8F7B-E08D06B32A54}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Obtener la Fecha de Carga"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[User::LoadDate]=GETDATE()" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Migrate Staging to Dimension"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FA3E0542-70BB-46D2-AAA1-BA2C38164020}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Migrate Staging to Dimension"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{38247E84-A6B5-4B58-99ED-34D27F54AA85}"
+          SQLTask:SqlStatementSource="EXEC Load_DimProduct" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Obtener la fecha de carga previa"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F40A2F59-DACC-4B00-B614-0CBD0155810E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Obtener la fecha de carga previa"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{38247E84-A6B5-4B58-99ED-34D27F54AA85}"
+          SQLTask:SqlStatementSource="EXEC int.Get_LastLoadedDate ?"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::PreviousLoadDate" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::TableName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Truncate Staging_Product"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B51A3F26-0CC3-4519-BD30-8E3AFDC0ACB7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Truncate Staging_Product"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{38247E84-A6B5-4B58-99ED-34D27F54AA85}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Staging_Product" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Update Lineage Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{59A38C96-0408-45FC-8FC6-3DB3852189D6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Update Lineage Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{38247E84-A6B5-4B58-99ED-34D27F54AA85}"
+          SQLTask:SqlStatementSource="EXEC int.Get_LineageKey ?,?,?"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LineageKey" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::LoadType"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::TableName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::LoadDate"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D73F32FD-874A-4F0F-99F2-DAC6D889925B}"
+      DTS:From="Package\Obtener la Fecha de Carga"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL Update Lineage Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{B796DEBA-E4B4-48D1-A316-606DEE6DDEBC}"
+      DTS:From="Package\SQL Update Lineage Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQL Truncate Staging_Product" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{27E7CA68-5995-4C5C-B1A8-B89DB2B16F95}"
+      DTS:From="Package\SQL Truncate Staging_Product"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SQL Obtener la fecha de carga previa" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{EC7B87D7-B463-4E70-A526-CEAF273D95DE}"
+      DTS:From="Package\SQL Obtener la fecha de carga previa"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\DF Populate Staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{5FD97170-09FC-4FC5-9C7A-163826B96150}"
+      DTS:From="Package\DF Populate Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\SQL Migrate Staging to Dimension" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\DF Populate Staging"
+          TopLeft="144,378" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Obtener la Fecha de Carga"
+          TopLeft="116,25" />
+        <NodeLayout
+          Size="248,42"
+          Id="Package\SQL Migrate Staging to Dimension"
+          TopLeft="115,476" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\SQL Obtener la fecha de carga previa"
+          TopLeft="109,281" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\SQL Truncate Staging_Product"
+          TopLeft="120,182" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\SQL Update Lineage Table"
+          TopLeft="121,103" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="224.5,67">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="227.5,145">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="234.25,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="233.25,323">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="236.5,420">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Obtiene la fecha de carga&#xA;Insertar una nueva vila en la tabla de Linaje&#xA;Truncar la Staging_Product&#xA;Cargar datos a la tabla  Staging_Product&#xA;Transferir Datos desde la  tabla Staging a la dimension&#xA;"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="315,120"
+          Id="2767ef51-c760-4c69-8728-c215afeecb80"
+          TopLeft="363,26" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF Populate Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DF Populate Staging\OLE DB Destination"
+          TopLeft="410,99" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DF Populate Staging\OLE DB Source"
+          TopLeft="98,94" />
+        <EdgeLayout
+          Id="Package\DF Populate Staging.Paths[OLE DB Source Output]"
+          TopLeft="255,117.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="155,0"
+              Start="0,0"
+              End="147.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="147.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Populate Staging\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Populate Staging\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
