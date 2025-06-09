@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">RALPHDESKTOP</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAtILSkOxlpUK92vnacgfmDAAAAAACAAAAAAADZgAAwAAAABAAAAAJEE/uAUVIKiiErpmccR33AAAAAASAAACgAAAAEAAAABqvJRo6t7s2uCLdBpjNDiCIAAAAOU7YLUA+k73erh9EPZ9J3WM0E42ChpSBpvxzppfsxkuMMtUhSwBBLPby4Dr1BJU7JMsK9npqq546fLF22NVcb4llNVM7nhHBt5ZCzTT6YcuDjaztSpAxY/FLTRCkpl1OODeCt9q6g97wGhf0k7fKZim/ZHcnIh+4udSGUd9OD9vQAlfx3AVfDhQAAAA8jywzgS6S6dfgVGAzQHC0mpjzrw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAwuFLvjXYjUywFFeH953GPQAAAAACAAAAAAAQZgAAAAEAACAAAACBW4aH7j1xK8pc4eacHXie2NqCGv9TUHAtz89P0rTpkQAAAAAOgAAAAAIAACAAAAA73Vtakd66yUFr/F90k8Cp5jNUINrhTQPRL2ThOsl8EZAAAAC+seoFP6+I4ZxXeMr1OwtGgHT2ijmgCIUKKfi2lBFmLYk7STbhpVnycWiK3HdLFBzyNukeJ6wNLGAJ4g0PbHGiLGl5zzDB0+jm4dyQUSv8SLCGKBwdewibqL3r4i533mRlyuPfD0Bv6U2LJ5YZVInDQnqjAYFXa7wCexRZ0AebrUO72VQzYcqB/tLH2yl5sjhAAAAA7jVOG6WpEHfLCt80ZiZ67x7zyxysaYSoQmi9dpeIyklrmeoQv0GUNDNZCEtMz0YL6hTjOVkyPkppbvPIowAgWA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,10 +42,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">24</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">45</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{F2599F56-2891-49DC-97AE-FA68B9D0D1AA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{25BB3CB6-F654-43A4-A3F6-D02F59A323E3}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -78,7 +78,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=RALPHDESKTOP;Initial Catalog=Demo;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{579A951E-E451-45EC-A69D-82913AC1378B}RALPHDESKTOP.Demo;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;Initial Catalog=Demo;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{579A951E-E451-45EC-A69D-82913AC1378B}RALPHDESKTOP.Demo;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -182,7 +182,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">RALPHDESKTOP</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">localhost</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -226,7 +226,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=RALPHDESKTOP;Initial Catalog=Demo_DW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{38247E84-A6B5-4B58-99ED-34D27F54AA85}RALPHDESKTOP.Demo_DW;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;Initial Catalog=DemoDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{38247E84-A6B5-4B58-99ED-34D27F54AA85}RALPHDESKTOP.Demo_DW;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -286,7 +286,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Demo_DW</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">DemoDW</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -330,7 +330,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">RALPHDESKTOP</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">localhost</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
